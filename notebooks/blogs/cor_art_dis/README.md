@@ -19,6 +19,9 @@ We attempt to answer the following business questions by performing this analysi
 #### Question 2
 * Can data science be used to reduce the number of Angiograms performed in settings where this is problematic?
 
+#### Question 3
+* What are the 4 factors most highly correlated with CAD within our dataset?
+
 We will attempt to answer these questions by interrogating data available to us.
 
 [Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease "Heart Disease Dataset")
