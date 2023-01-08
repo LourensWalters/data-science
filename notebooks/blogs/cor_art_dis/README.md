@@ -23,11 +23,10 @@ We attempt to answer the following business questions by performing this analysi
 * What are the 4 factors most highly correlated with CAD within our dataset?
 
 We will attempt to answer these questions by interrogating data available to us.
-
-[Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease "Heart Disease Dataset")
  
-* A blog of the analysis can be accessed [here](https://lourenswalters.github.io/2023/01/02/coronary-artery-disease-investigation.html)
+* A blog of the analysis can be accessed [here](https://lourenswalters.github.io/2023/01/02/coronary-artery-disease-investigation.html).
 * A static version of the Notebook can be accessed [here](https://github.com/LourensWalters/data-science/blob/main/notebooks/blogs/cor_art_dis/cor_art_disease_udacity_local.ipynb "here") for purposes of viewing the analysis.  
+* Some examples of function commenting used in notebook can be found [here](https://github.com/LourensWalters/data-science/blob/main/src/visualization/visualize.py) 
 
 
 Approach
@@ -40,7 +39,12 @@ I chose the Jupyter Notebook tool for exploration. The notebook is heavily annot
 I used the cookiecutter Machine Learning source code template for this project. This template organises code, data and documentation in a structured manner which allows for flexible exploration of data and structured deployment of production ready code. I focused on the exploratory part of the analysis, eliciting as much information from the data as possible. Future work would be to refactor the code for production readiness. I have started this process by moving some of the code to modules which are referenced from the notebook, and hence the src/visualization directory contains most of the plots contained in the Notebook. If the Notebook is to be run offline the src/ directories will need to be linked the notebook.  
 
 
+References
+==========
 
+* Detrano, R., Janosi, A., Steinbrunn, W., Pfisterer, M., Schmid, J., Sandhu, S., Guppy, K., Lee, S., & Froelicher, V. (1989). International application of a new probability algorithm for the diagnosis of coronary artery disease. American Journal of Cardiology, 64,304--310.
+* David W. Aha & Dennis Kibler. "Instance-based prediction of heart-disease presence with the Cleveland database."
+* [Heart Disease Dataset](https://archive.ics.uci.edu/ml/datasets/Heart+Disease "Heart Disease Dataset") as recorded by: V.A. Medical Center, Long Beach and Cleveland Clinic Foundation, Principal investigator & data collector: Robert Detrano, M.D., Ph.D.
 
 
 
@@ -95,5 +99,8 @@ Project Organization
 
 
 --------
+
+
+
 
 <p><small>Project based on the <a target="_blank" href="https://drivendata.github.io/cookiecutter-data-science/">cookiecutter data science project template</a>. #cookiecutterdatascience</small></p>
