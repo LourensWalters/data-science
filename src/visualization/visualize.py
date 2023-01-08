@@ -73,10 +73,10 @@ def plot_confusion_matrix(cm, classes, normalise=False, title='Confusion matrix'
 
     acc_score = round((tp + tn) / (tp + fp + tn + fn), 3)
 
-    print('\naccuracy:\t\t\t{}  \nprecision:\t\t\t{} \nsensitivity:\t\t\t{}'.format(acc_score, ppv, tpr))
-    print('\nspecificity:\t\t\t{} \nnegative predictive value:\t{}'.format(tnr, npv))
-    print('\nfalse positive rate:\t\t{}  \nfalse negative rate:\t\t{} \nfalse discovery rate:\t\t{}'.format(fpr, fnr,
-                                                                                                            fdr))
+#    print('\naccuracy:\t\t\t{:.2f}  \nprecision:\t\t\t{:.2f} \nsensitivity:\t\t\t{:.2f}'.format(acc_score, ppv, tpr))
+#    print('\nspecificity:\t\t\t{:.2f} \nnegative predictive value:\t{:.2f}'.format(tnr, npv))
+#    print('\nfalse positive rate:\t\t{:.2f}  \nfalse negative rate:\t\t{:.2f} \nfalse discovery rate:\t\t{:.2f}'.format(fpr, fnr,
+#                                                                                                            fdr))
 
 
 def plot_roc_curve(fpr, tpr, title="Receiver operating characteristic (ROC) Curve"):
@@ -93,7 +93,7 @@ def plot_roc_curve(fpr, tpr, title="Receiver operating characteristic (ROC) Curv
     """
 
     # Visualization for ROC curve
-    print('AUC: {}'.format(auc(fpr, tpr)))
+    print('AUC: {:.2f}'.format(auc(fpr, tpr)))
     plt.figure(figsize=(10, 8))
     lw = 2
     _ = plt.plot(fpr, tpr, color='darkorange', lw=lw, label='ROC curve');
@@ -122,7 +122,7 @@ def plot_feature_importance_log(fit, features):
 
     """
 
-    set_printoptions(precision=3)
+    set_printoptions(precision=2)
 
     # Summarize selected features
     scores = -np.log10(fit.pvalues)
@@ -133,8 +133,8 @@ def plot_feature_importance_log(fit, features):
     reverse_features = feature_list[sorted_ID][::-1]
     reverse_importances = importances[sorted_ID][::-1]
 
-    for i, v in enumerate(reverse_importances):
-        print('Feature: %20s\tScore:\t%.5f' % (reverse_features[i], v))
+#    for i, v in enumerate(reverse_importances):
+#        print('Feature: %20s\tScore:\t%.2f' % (reverse_features[i], v))
 
     # Plot feature importance
     _ = plt.figure(figsize=[10, 10]);
@@ -157,7 +157,7 @@ def plot_feature_importance_dec(fit, features):
 
     """
 
-    set_printoptions(precision=3)
+    set_printoptions(precision=2)
 
     # Summarize selected features
     scores = fit
@@ -169,8 +169,8 @@ def plot_feature_importance_dec(fit, features):
     reverse_features = feature_list[sorted_ID][::-1]
     reverse_importances = importances[sorted_ID][::-1]
 
-    for i, v in enumerate(reverse_importances):
-        print('Feature: %20s\tScore:\t%.5f' % (reverse_features[i], v))
+#    for i, v in enumerate(reverse_importances):
+#        print('Feature: %20s\tScore:\t%.2f' % (reverse_features[i], v))
 
     # Plot feature importance
     _ = plt.figure(figsize=[10, 10]);
@@ -193,7 +193,7 @@ def plot_feature_importance(fit, features):
 
     """
 
-    set_printoptions(precision=3)
+    set_printoptions(precision=2)
 
     # Summarize selected features
     scores = -np.log10(fit.pvalues_)
@@ -204,8 +204,8 @@ def plot_feature_importance(fit, features):
     reverse_features = feature_list[sorted_ID][::-1]
     reverse_importances = importances[sorted_ID][::-1]
 
-    for i, v in enumerate(reverse_importances):
-        print('Feature: %20s\tScore:\t%.5f' % (reverse_features[i], v))
+#    for i, v in enumerate(reverse_importances):
+#        print('Feature: %20s\tScore:\t%.2f' % (reverse_features[i], v))
 
     # Plot feature importance
     _ = plt.figure(figsize=[10, 10]);
