@@ -32,7 +32,7 @@ The project is divided into three components:
 The dataset is imbalanced (ie some labels like water have few examples) which contributes to lower score for the ones which have less data. That is why the overall score is low. For skewed datasets, accuracy as a metric for model evaluation is not preferred. In this case, it's better to have more FP than FN, as it makes sure than the messages are at least sent to appropriate disaster relief agency, instead of ignoring some really urgent messages (FN). Therefore, it is important to have a classification model that shows low number of FN -> high recall value.
 
 <p align="center">
-  <img src="/images/classification_report.png" height="600" width="800" />
+  <img src="/images/accuracy.png" height="600" width="800" />
 </p>
 
 # Acknowledgements
@@ -42,19 +42,16 @@ The dataset is imbalanced (ie some labels like water have few examples) which co
 # Results
 1. Input message to get classification results
 <p align="center">
-  <img src="/images/message_input.png" height="200" width="800" />
+  <img src="/images/question.png" height="200" width="800" />
 </p>
 
 2. Example: The categories which the message belongs to highlighted in green
 <p align="center">
-  <img src="/images/result_example.png" height="600" width="800" />
+  <img src="/images/result.png" height="600" width="800" />
 </p>
 
 3. Overview of Training Dataset
-<p align="center">
-  <img src="/images/distribution_genre.png" height="400" width="800" />
-</p>
 
 <p align="center">
-  <img src="/images/distribution_catogory.png" height="400" width="800" />
+  <img src="/images/categories.png" height="400" width="800" />
 </p>
