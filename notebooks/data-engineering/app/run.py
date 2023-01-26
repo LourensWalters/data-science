@@ -73,10 +73,10 @@ def tokenize(text):
 
 # load data
 engine = create_engine('sqlite:///../data/disaster.db')
-df = pd.read_sql_table('model_data4', engine)
+df = pd.read_sql_table('model_data5', engine)
 
 # load model
-model = joblib.load("../models/disaster_ada_model.pkl")
+model = pickle.load(open("../models/classifier.pkl", 'rb'))
 
 
 # index webpage displays cool visuals and receives user input text for model

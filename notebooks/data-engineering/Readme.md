@@ -28,7 +28,6 @@ The project is divided into three components:
 
 3. Go to http://0.0.0.0:3001/
 
-
 # Classification Model
 The dataset is imbalanced (ie some labels like water have few examples) which contributes to lower score for the ones which have less data. That is why the overall score is low. For skewed datasets, accuracy as a metric for model evaluation is not preferred. In this case, it's better to have more FP than FN, as it makes sure than the messages are at least sent to appropriate disaster relief agency, instead of ignoring some really urgent messages (FN). Therefore, it is important to have a classification model that shows low number of FN -> high recall value.
 
@@ -37,7 +36,7 @@ The dataset is imbalanced (ie some labels like water have few examples) which co
 </p>
 
 # Acknowledgements
-- [Udacity](https://www.udacity.com) for providing such a interesting and meaningful project
+- [Udacity](https://www.udacity.com) for providing such an interesting and meaningful project
 - [Figure Eight](https://appen.com) for providing real-world dataset
 
 # Results
