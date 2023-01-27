@@ -28,6 +28,30 @@ The project is divided into three components:
 
 3. Go to http://0.0.0.0:3001/
 
+# Project Organization
+
+
+    ├── README.md                <- The top-level README for developers using this project.
+    ├──  app                     <- Contains app related files. 
+    │   ├── run.py         <- Run the webapp.
+    │   ├── templates      <- Webapp templates.
+    │      ├── go.html          <- Classification results. 
+    │      ├── master.html      <- Main page.
+    ├──  data              
+    │   ├── categories.csv     <- Data to process.
+    │   ├── messages.csv       <- Data to process.
+    │   ├── process_data.py    <- Script to process data.
+    │   └── disaster.db        <- Processed data.
+    ├── images                       <- Generated analysis as HTML, PDF, LaTeX, etc.
+    │   └── various images     <- Generated graphics and figures to be used in reporting
+    │
+    ├── models                            <- Trained and serialized models, model predictions, or model summaries
+    │   ├── train_classifier.py     <- Training script.
+    │   ├── classifier.pkl          <- Saved model.
+    │
+    ├── ETL Pipeline Preparation.ipynb    <- ML Pipeline preparation notebook.
+    └── ETL Pipeline Preparation.ipynb    <- ETL Pipeline preparation notebook. 
+
 # Classification Model
 The dataset is imbalanced (ie some labels like water have few examples) which contributes to lower score for the ones which have less data. That is why the overall score is low. For skewed datasets, accuracy as a metric for model evaluation is not preferred. In this case, it's better to have more FP than FN, as it makes sure than the messages are at least sent to appropriate disaster relief agency, instead of ignoring some really urgent messages (FN). Therefore, it is important to have a classification model that shows low number of FN -> high recall value.
 
