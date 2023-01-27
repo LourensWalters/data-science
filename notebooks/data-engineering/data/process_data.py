@@ -37,17 +37,23 @@ def load_data(messages_filepath, categories_filepath):
         categories[column] = categories[column].astype(int)
 
     df.drop("categories", axis=1, inplace=True)
+
+    # Maximum value for 'related' column is '2'. Fix by replacing 2 by 1 for now. We can update later.
+    df['related'] = df['related'].map(lambda x: 1 if x==2 else x)
+
     df = pd.concat([df.reset_index(drop=True), categories.reset_index(drop=True)], axis=1)
 
     return df
 
-def clean_data(df):
-    pass
-
-
 def save_data(df, database_filename):
+    '''
+    Saves dataframe to database.
+
+    Returns:
+        Nothing.
+    '''
     engine = create_engine('sqlite:///' + database_filename)
-    df.to_sql('model_data5', engine, index=False)
+    df.to_sql('model_data5', engine, index=False, if_exists='replace')
 
 def main():
     if len(sys.argv) == 4:

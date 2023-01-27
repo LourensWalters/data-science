@@ -25,16 +25,18 @@ from sklearn.multioutput import MultiOutputClassifier
 from sklearn.metrics import classification_report, make_scorer, f1_score
 
 def load_data(database_filepath = 'sqlite:///data/disaster.db'):
+    '''
+    Reads data into dataframes from database.
 
+    Returns:
+        Dataframes containing dependent and independent variables, as well column names for independent variables.
+    '''
     engine = create_engine(database_filepath)
     sql = "select * from model_data4"
     df = pd.read_sql(sql, con=engine)
 
     # We remove 'child_alone' column as it has no values.
     df = df.drop(['child_alone', 'offer', 'tools'], axis = 1)
-
-    # Maximum value for 'related' column is '2'. Fix by replacing 2 by 1 for now. We can update later.
-    df['related'] = df['related'].map(lambda x: 1 if x==2 else x)
 
     X = df[["message", "genre"]]
     Y = df.iloc[:,5:]
@@ -44,6 +46,15 @@ def load_data(database_filepath = 'sqlite:///data/disaster.db'):
     return X, Y, column_names
 
 def tokenize(text):
+    '''
+    Extracts tokens from string by means of cleaning, tokenising and lemmatising input.
+
+    Input:
+        Text string to be tokenised.
+
+    Output:
+        List of cleaned tokens.
+    '''
 
     url_regex = 'http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+'
     # detect all URL present in the messages
@@ -65,6 +76,15 @@ def tokenize(text):
 
 # Engineer new features.
 class StartingVerbExtractor(BaseEstimator, TransformerMixin):
+    '''
+    Function to extract starting verb from each sentence.
+
+    Input:
+        Base estimator and
+        Transformer classes used within ML pipelines.
+    Return:
+        Transform method returns a dataframe containing transformed values.
+    '''
 
     def starting_verb(self, text):
         sentence_list = nltk.sent_tokenize(text)
@@ -96,7 +116,15 @@ def pipeline2(clf  = AdaBoostClassifier(random_state = 1)):
      return pipeline
 
 def build_model():
+    '''
+    Builds the model to be fitted to the data.
 
+    Input:
+        None.
+
+    Output:
+        Returns the model object which could be used to fit and predict on data.
+    '''
     parameters_ada = {
     'clf__estimator__learning_rate': [0.1, 0.3],
     'clf__estimator__n_estimators': [100, 200]
@@ -110,12 +138,31 @@ def build_model():
     return pipeline_cv
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    '''
+    Function that predicts values based on model selected, and generates an accuracy report.
 
+    Input:
+        Model:      Model to be used for predictions.
+        X_test:     Test data containing independent variables to be used for predictions.
+        Y_test:     Dependent variable to be used for accuracy evaluation.
+
+    Returns:
+        Nothing.
+    '''
     y_pred = model.predict(X_test)
     print(classification_report(Y_test, y_pred, target_names = category_names))
 
 def save_model(model, model_filepath):
+    '''
+    Saves model to pickle file.
 
+    Input:
+        model:          Model to be saved.
+        model_path:     Path to where model should be saved.
+
+    Returns:
+        Nothing.
+    '''
     pickle.dump(model, open(model_filepath, 'wb'))
 
 
