@@ -83,3 +83,7 @@ The dataset is imbalanced (ie some labels like water have few examples) which co
 <p align="center">
   <img src="./images/distribution_genre.png" height="400" width="800" /> 
 </p>
+
+<p align="center">
+  <img src="./images/distribution_genre_by_msg_type.png" height="400" width="800" /> 
+</p>
