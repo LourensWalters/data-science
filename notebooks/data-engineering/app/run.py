@@ -89,6 +89,14 @@ def index():
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
 
+    # Count of Categories
+    category_count = df.iloc[:,4:].sum()
+    category_names = list(category_count.index)
+
+    cat = df.iloc[:,4:]
+    cat_mean = cat.mean().sort_values(ascending=False)[1:11]
+    cat_name = list(cat_mean.index)
+
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
@@ -108,6 +116,59 @@ def index():
                 'xaxis': {
                     'title': "Genre"
                 }
+            }
+        },
+        # GRAPH 2 -  distribution by category
+        {
+            'data': [
+                Bar(
+                    x=category_names,
+                    y=category_count
+                )
+            ],
+
+            'layout': {
+                'title': 'Distribution of Message Category',
+                'yaxis': {
+                    'title': "Count"
+                },
+                'xaxis': {
+                    'title': "Genre"
+                },
+                'width': 1000,
+                'height': 700,
+                'margin': dict(
+                    pad=10,
+                    b=150,
+                )
+            }
+        },
+    # GRAPH 3 -  Top 10 Message Categories
+        {
+            'data': [
+                Bar(
+                     x=cat_name,
+                     y=cat_mean
+
+                )
+
+            ],
+
+            'layout': {
+
+                'title': 'Top 10 Message Categories',
+                 'yaxis': {
+                'title': "Percentage"
+                },
+                 'xaxis': {
+                'title': "Categories"
+                },
+                'width': 1000,
+                'height': 700,
+                'margin': dict(
+                    pad=10,
+                    b=150,
+                    )
             }
         }
     ]
