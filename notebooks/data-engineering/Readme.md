@@ -63,11 +63,6 @@ The overall F1 scored micro-averaged across all the categories is 61%, which is 
 
 From the accuracy output it is clear that model needs substantial work in order to be deployed. Next steps would be to address the class imbalance in the model. One could attempt upsampling of data categories by using MLSMOTE for instance, or try a few other "multiclass-multioutput" classification algorithms such as tree based ones or KNeighbours based algorithms.
 
-
-# Acknowledgements
-- [Udacity](https://www.udacity.com) for providing such an interesting and meaningful project
-- [Figure Eight](https://appen.com) for providing real-world dataset
-
 # Results
 1. Prompt to input a message for classification.
 <p align="center">
