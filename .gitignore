@@ -87,3 +87,14 @@ target/
 
 # Mypy cache
 .mypy_cache/
+/notebooks/resources/recommendations/df_dists.csv
+/notebooks/resources/recommendations/movies_clean.csv
+/notebooks/resources/recommendations/reviews_clean.csv
+/notebooks/resources/statistical_tests/data/bootstrapping_data.csv
+/notebooks/resources/statistical_tests/data/permutation_data.csv
+/notebooks/resources/statistical_tests/data/signtest_data.csv
+/notebooks/resources/statistical_tests/data/statistical_significance_data.csv
+/notebooks/resources/recommendations_matrix_factorization/movies_clean.csv
+/notebooks/resources/recommendations_matrix_factorization/reviews_clean.csv
+/notebooks/resources/experiment_design/Test.csv
+/notebooks/resources/experiment_design/training.csv
